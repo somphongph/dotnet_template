@@ -1,3 +1,5 @@
+using Domain;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,6 +10,13 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers()
     .AddJsonOptions(
         options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
+
+builder.Services.AddHttpContextAccessor();
+
+#region Service Register & Dependency Injection
+builder.Services.AddDomainServices();
+// builder.Services.AddInfrastructureServices(builder.Configuration);
+#endregion
 
 var app = builder.Build();
 
