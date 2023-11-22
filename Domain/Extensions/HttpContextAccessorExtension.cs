@@ -10,6 +10,6 @@ public static class HttpContextAccessorExtension
         var identity = httpContextAccessor?.HttpContext?.User.Identity as ClaimsIdentity;
         var userId = identity?.FindFirst(ClaimTypes.Sid)?.Value;
 
-        return userId ?? String.Empty;
+        return userId ?? string.Empty;
     }
 }

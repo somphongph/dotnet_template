@@ -1,4 +1,5 @@
 using Domain;
+using Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +16,7 @@ builder.Services.AddHttpContextAccessor();
 
 #region Service Register & Dependency Injection
 builder.Services.AddDomainServices();
-// builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddInfrastructureServices(builder.Configuration);
 #endregion
 
 var app = builder.Build();
@@ -29,7 +30,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// app.UseAuthorization();
+app.UseAuthorization();
 
 app.MapControllers();
 

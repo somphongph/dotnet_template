@@ -1,6 +1,4 @@
 using System.Globalization;
-using System.Text;
-using System.Text.RegularExpressions;
 
 namespace Domain.Extensions;
 
@@ -8,7 +6,7 @@ public static class StringExtension
 {
     public static string ToSnakeCase(this string str)
     {
-        return String.Concat((str)
+        return string.Concat((str)
                 .Select((x, i) => i > 0 && i < str.Length - 1 && char.IsUpper(x) && !char.IsUpper(str[i - 1])
                     ? $"_{x}"
                     : x.ToString())).ToLower();
@@ -22,11 +20,11 @@ public static class StringExtension
             .Split('_')
             .Select(ti.ToTitleCase);
 
-        return String.Join("", arr);
+        return string.Join("", arr);
     }
 
     public static bool HasValue(this string? str)
     {
-        return !String.IsNullOrEmpty(str);
+        return !string.IsNullOrEmpty(str);
     }
 }

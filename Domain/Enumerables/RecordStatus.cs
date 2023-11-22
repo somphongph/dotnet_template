@@ -12,11 +12,11 @@ public enum RecordStatus
 
 public static class RecordStatusName
 {
-    public static Locale Name(this RecordStatus enumValue) => Name(enumValue.Code());
+    public static Locale Name(this RecordStatus enumValue) => NameCode(enumValue.Code());
 
-    public static string NameString(this RecordStatus enumValue) => Name(enumValue.Code()).ToString() ?? "";
+    public static string NameString(this RecordStatus enumValue) => NameCode(enumValue.Code()).ToString() ?? "";
 
-    public static Locale Name(string code) => Data().FirstOrDefault(m => m.Key.Equals(code)).Value ?? new Locale();
+    public static Locale NameCode(string code) => Data().FirstOrDefault(m => m.Key.Equals(code)).Value ?? new Locale();
 
     public static Dictionary<string, Locale> Data()
     {

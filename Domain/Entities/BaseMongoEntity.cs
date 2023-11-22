@@ -7,7 +7,7 @@ public abstract class BaseMongoEntity
 {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
-    public string Id { get; set; } = String.Empty;
+    public string Id { get; set; } = string.Empty;
 
     [BsonElement("createdBy")]
     public string? CreatedBy { get; set; }
@@ -31,5 +31,5 @@ public abstract class BaseMongoEntity
     public DateTime? DeletedOn { get; set; }
 
     [BsonElement("status")]
-    public string Status { get; set; } = String.Empty;
+    public string Status { get; set; } = string.Empty;
 }

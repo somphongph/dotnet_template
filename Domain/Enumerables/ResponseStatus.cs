@@ -14,11 +14,11 @@ public enum ResponseStatus
 
 public static class ResponseCodeName
 {
-    public static Locale Name(this ResponseStatus enumValue) => Name(enumValue.Code());
+    public static Locale Name(this ResponseStatus enumValue) => NameCode(enumValue.Code());
 
-    public static string NameString(this ResponseStatus enumValue) => Name(enumValue.Code()).ToString() ?? "";
+    public static string NameString(this ResponseStatus enumValue) => NameCode(enumValue.Code()).ToString() ?? "";
 
-    public static Locale Name(string code) => Data().FirstOrDefault(m => m.Key.Equals(code)).Value ?? new Locale();
+    public static Locale NameCode(string code) => Data().FirstOrDefault(m => m.Key.Equals(code)).Value ?? new Locale();
 
     public static Dictionary<string, Locale> Data()
     {
