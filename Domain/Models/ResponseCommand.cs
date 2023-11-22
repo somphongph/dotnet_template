@@ -9,8 +9,8 @@ public class ResponseCommand<T> : BaseResponse
     public ResponseCommand() { }
     public ResponseCommand(ResponseStatus status)
     {
-        this.Code = status.Code();
-        this.Message = status.NameString();
+        Code = status.Code();
+        Message = status.NameString();
     }
 
     [JsonPropertyOrder(3)]

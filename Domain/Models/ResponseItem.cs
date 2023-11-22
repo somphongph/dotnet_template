@@ -9,8 +9,8 @@ public class ResponseItem<T> : BaseResponse
     public ResponseItem() { }
     public ResponseItem(ResponseStatus status)
     {
-        this.Code = status.Code();
-        this.Message = status.NameString();
+        Code = status.Code();
+        Message = status.NameString();
     }
 
     [JsonPropertyOrder(4)]

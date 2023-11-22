@@ -4,10 +4,10 @@ using Domain.Extensions;
 
 namespace Domain.Models;
 
-public class ResponseList<T> : BaseResponse
+public class ResponsePaging<T> : BaseResponse
 {
-    public ResponseList() { }
-    public ResponseList(ResponseStatus status)
+    public ResponsePaging() { }
+    public ResponsePaging(ResponseStatus status)
     {
         Code = status.Code();
         Message = status.NameString();
@@ -17,5 +17,14 @@ public class ResponseList<T> : BaseResponse
     public bool IsCached { get; set; }
 
     [JsonPropertyOrder(5)]
+    public long Total { get; set; }
+
+    [JsonPropertyOrder(6)]
+    public int Page { get; set; }
+
+    [JsonPropertyOrder(7)]
+    public int Limit { get; set; }
+
+    [JsonPropertyOrder(8)]
     public IEnumerable<T>? Data { get; set; }
 }
