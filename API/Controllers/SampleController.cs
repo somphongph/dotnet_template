@@ -1,29 +1,31 @@
+using System.Net;
+using Domain.Handlers.Sample.GetSample;
+using Domain.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [Route("[controller]")]
-    public class SampleController : Controller
+    [ApiController]
+    [Produces("application/json")]
+    [Route("api/v1/sample")]
+    public class SampleController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        private readonly ILogger<SampleController> _logger;
-
-        public SampleController(ILogger<SampleController> logger)
+        public SampleController(IMediator mediator)
         {
-            _logger = logger;
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        public IActionResult Index()
+        [HttpGet]
+        [ResponseCache(Duration = 60)]
+        [ProducesResponseType(typeof(ResponseItem<CodeName>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult> Get([FromQuery] GetSample req)
         {
-            return View();
-        }
+            var res = await _mediator.Send(req);
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View("Error!");
+            return Ok(res);
         }
     }
 }
