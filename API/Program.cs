@@ -1,3 +1,4 @@
+using API.Middleware;
 using Domain;
 using Infrastructure;
 
@@ -33,5 +34,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseRequestCulture();
 
 app.Run();
