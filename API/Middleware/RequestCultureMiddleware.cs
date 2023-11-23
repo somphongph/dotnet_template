@@ -15,14 +15,14 @@ public class RequestCultureMiddleware
     {
         CultureInfo culture;
 
-        var cultureQuery = context.Request.Query["lang"];
+        string cultureQuery = Convert.ToString(context.Request.Query["lang"]);
         if (!string.IsNullOrWhiteSpace(cultureQuery))
         {
             culture = new CultureInfo(ConvertCultureExtensions.CultureCodeToStandardCultureCode(cultureQuery));
         }
         else
         {
-            var cultureHeader = context.Request.Headers["Accept-Language"];
+            string cultureHeader = Convert.ToString(context.Request.Headers.AcceptLanguage);
             if (!string.IsNullOrWhiteSpace(cultureHeader))
             {
                 culture = new CultureInfo(ConvertCultureExtensions.CultureCodeToStandardCultureCode(cultureHeader));

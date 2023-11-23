@@ -9,7 +9,8 @@ public enum ResponseStatus
     Failed,
     DataNotFound,
     DataInvalid,
-    DataDuplicated
+    DataDuplicated,
+    Unauthorized
 }
 
 public static class ResponseCodeName
@@ -28,7 +29,8 @@ public static class ResponseCodeName
             { ResponseStatus.Failed.Code(), Locale.Create("การดำเนินการไม่สำเร็จ", "Action failed", "") },
             { ResponseStatus.DataNotFound.Code(), Locale.Create("ไม่พบข้อมูล", "Data not found", "") },
             { ResponseStatus.DataInvalid.Code(), Locale.Create("ข้อมูลไม่ถูกต้อง", "Data invalid", "") },
-            { ResponseStatus.DataDuplicated.Code(), Locale.Create("ไม่สามารถระบุข้อมูลซ้ำกันได้", "Data duplicated", "") }
+            { ResponseStatus.DataDuplicated.Code(), Locale.Create("ไม่สามารถระบุข้อมูลซ้ำกันได้", "Data duplicated", "") },
+            { ResponseStatus.Unauthorized.Code(), Locale.Create("ไม่มีสิทธิ์เข้าถึง", "Unauthorized","") }
         };
         return dict;
     }
