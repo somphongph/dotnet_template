@@ -6,19 +6,12 @@ public class ConvertCultureExtensions
     {
         letter = letter.Trim().ToLower();
 
-        switch (letter)
+        return letter switch
         {
-            case "en":
-            case "en-us":
-                return "en-US";
-            case "th":
-            case "th-th":
-                return "th-TH";
-            case "cn":
-            case "zh-cn":
-                return "zh-CN";
-            default:
-                return "en-US";
-        }
+            "en" or "en-us" => "en-US",
+            "th" or "th-th" => "th-TH",
+            "cn" or "zh-cn" => "zh-CN",
+            _ => "en-US",
+        };
     }
 }
