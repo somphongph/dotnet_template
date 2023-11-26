@@ -1,61 +1,60 @@
-﻿namespace Domain.Helpers
+﻿namespace Domain.Helpers;
+
+public static class RandomHelper
 {
-    public static class RandomHelper
+    public static string RandomKey(int length)
     {
-        public static string RandomKey(int length)
+        var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        var result = new char[length];
+        var rnd = new Random();
+
+        for (int i = 0; i < result.Length; i++)
         {
-            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            var result = new char[length];
-            var rnd = new Random();
-
-            for (int i = 0; i < result.Length; i++)
-            {
-                result[i] = chars[rnd.Next(chars.Length)];
-            }
-
-            return new string(result);
+            result[i] = chars[rnd.Next(chars.Length)];
         }
 
-        public static string RandomNumber(int length)
+        return new string(result);
+    }
+
+    public static string RandomNumber(int length)
+    {
+        var chars = "0123456789";
+        var result = new char[length];
+        var rnd = new Random();
+
+        for (int i = 0; i < result.Length; i++)
         {
-            var chars = "0123456789";
-            var result = new char[length];
-            var rnd = new Random();
-
-            for (int i = 0; i < result.Length; i++)
-            {
-                result[i] = chars[rnd.Next(chars.Length)];
-            }
-
-            return new string(result);
+            result[i] = chars[rnd.Next(chars.Length)];
         }
 
-        public static string RandomToLower(int length)
+        return new string(result);
+    }
+
+    public static string RandomToLower(int length)
+    {
+        var chars = "abcdefghijklmnopqrstuvwxyz";
+        var result = new char[length];
+        var rnd = new Random();
+
+        for (int i = 0; i < result.Length; i++)
         {
-            var chars = "abcdefghijklmnopqrstuvwxyz";
-            var result = new char[length];
-            var rnd = new Random();
-
-            for (int i = 0; i < result.Length; i++)
-            {
-                result[i] = chars[rnd.Next(chars.Length)];
-            }
-
-            return new string(result);
+            result[i] = chars[rnd.Next(chars.Length)];
         }
 
-        public static string RandomToUpper(int length)
+        return new string(result);
+    }
+
+    public static string RandomToUpper(int length)
+    {
+        var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var result = new char[length];
+        var rnd = new Random();
+
+        for (int i = 0; i < result.Length; i++)
         {
-            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            var result = new char[length];
-            var rnd = new Random();
-
-            for (int i = 0; i < result.Length; i++)
-            {
-                result[i] = chars[rnd.Next(chars.Length)];
-            }
-
-            return new string(result);
+            result[i] = chars[rnd.Next(chars.Length)];
         }
+
+        return new string(result);
     }
 }

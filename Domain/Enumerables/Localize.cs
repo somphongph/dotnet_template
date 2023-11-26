@@ -1,8 +1,7 @@
-namespace Domain.Enumerables
+namespace Domain.Enumerables;
+
+public enum Localize
 {
-    public enum Localize
-    {
-        Th,
-        En,
-    }
+    Th,
+    En,
 }

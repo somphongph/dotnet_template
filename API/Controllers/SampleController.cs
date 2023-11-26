@@ -4,31 +4,30 @@ using Domain.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers
+namespace API.Controllers;
+
+[ApiController]
+[Produces("application/json")]
+[Route("api/v1/sample")]
+public class SampleController : ControllerBase
 {
-    [ApiController]
-    [Produces("application/json")]
-    [Route("api/v1/sample")]
-    public class SampleController : ControllerBase
+    private readonly ILogger<SampleController> _logger;
+    private readonly IMediator _mediator;
+
+    public SampleController(ILogger<SampleController> logger, IMediator mediator)
     {
-        private readonly ILogger<SampleController> _logger;
-        private readonly IMediator _mediator;
+        _logger = logger;
+        _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+    }
 
-        public SampleController(ILogger<SampleController> logger, IMediator mediator)
-        {
-            _logger = logger;
-            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-        }
+    [HttpGet]
+    [ResponseCache(Duration = 60)]
+    [ProducesResponseType(typeof(ResponseItem<CodeName>), (int)HttpStatusCode.OK)]
+    public async Task<ActionResult> Get([FromQuery] GetSample req)
+    {
+        _logger.LogInformation("SampleController");
+        var res = await _mediator.Send(req);
 
-        [HttpGet]
-        [ResponseCache(Duration = 60)]
-        [ProducesResponseType(typeof(ResponseItem<CodeName>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult> Get([FromQuery] GetSample req)
-        {
-            _logger.LogInformation("SampleController");
-            var res = await _mediator.Send(req);
-
-            return Ok(res);
-        }
+        return Ok(res);
     }
 }

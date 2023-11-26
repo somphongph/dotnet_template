@@ -1,24 +1,23 @@
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Domain
+namespace Domain;
+
+public static class DomainServicesRegistration
 {
-    public static class DomainServicesRegistration
+    public static IServiceCollection AddDomainServices(this IServiceCollection services)
     {
-        public static IServiceCollection AddDomainServices(this IServiceCollection services)
-        {
-            #region MediatR
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
-            #endregion
+        #region MediatR
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+        #endregion
 
-            #region Services dependency Injection
-            #endregion
+        #region Services dependency Injection
+        #endregion
 
-            #region Filter
+        #region Filter
 
-            #endregion
+        #endregion
 
-            return services;
-        }
+        return services;
     }
 }
