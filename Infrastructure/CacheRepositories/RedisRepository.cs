@@ -25,7 +25,7 @@ public class RedisRepository : ICacheRepository
             return JsonSerializer.Deserialize<T>(result);
         }
 
-        return default(T);
+        return default;
     }
 
     public async Task<T?> AddCacheShortAsync<T>(string key, T data)

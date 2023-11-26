@@ -17,7 +17,7 @@ public static class InfrastructureServiceRegistration
             sp.GetRequiredService<IOptions<MongoSettings>>().Value);
         #endregion
 
-        #region Repositories dependency injection
+        #region Repositories
         services.AddSingleton<IMongoContext, MongoContext>();
         #endregion
 

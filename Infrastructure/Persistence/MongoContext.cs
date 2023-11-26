@@ -5,16 +5,16 @@ namespace Infrastructure.Persistence;
 
 public class MongoContext : IMongoContext
 {
-    private IMongoDatabase db { get; set; }
-    private MongoClient mongoClient { get; set; }
+    private IMongoDatabase Db { get; set; }
+    private MongoClient MongoClient { get; set; }
     public MongoContext(IMongoSettings settings)
     {
-        mongoClient = new MongoClient(settings.ConnectionString);
-        db = mongoClient.GetDatabase(settings.DatabaseName);
+        MongoClient = new MongoClient(settings.ConnectionString);
+        Db = MongoClient.GetDatabase(settings.DatabaseName);
     }
 
     public IMongoCollection<TDocument> GetCollection<TDocument>(string name)
     {
-        return db.GetCollection<TDocument>(name.ToSnakeCase());
+        return Db.GetCollection<TDocument>(name.ToSnakeCase());
     }
 }

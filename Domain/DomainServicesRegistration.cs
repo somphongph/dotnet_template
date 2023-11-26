@@ -11,13 +11,6 @@ public static class DomainServicesRegistration
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
         #endregion
 
-        #region Services dependency Injection
-        #endregion
-
-        #region Filter
-
-        #endregion
-
         return services;
     }
 }
