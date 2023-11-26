@@ -1,28 +1,27 @@
+using MongoDB.Bson.Serialization.Attributes;
+
 namespace Domain.Models;
 
 public class Locale
 {
+    [BsonElement("en")]
     public string En { get; set; } = string.Empty;
 
+    [BsonElement("th")]
     public string Th { get; set; } = string.Empty;
 
+    [BsonElement("cn")]
     public string Cn { get; set; } = string.Empty;
 
     public override string ToString()
     {
-        switch (Thread.CurrentThread.CurrentUICulture.Name.ToLower())
+        return Thread.CurrentThread.CurrentUICulture.Name.ToLower() switch
         {
-            case "th":
-            case "th-th":
-                return Th;
-
-            case "cn":
-            case "zh-cn":
-                return Cn;
-
-            default:
-                return En;
-        }
+            "en" or "en-us" => Th,
+            "th" or "th-th" => Th,
+            "cn" or "zh-cn" => Cn,
+            _ => En,
+        };
     }
 
     public static Locale Create(string Th, string En, string Cn)

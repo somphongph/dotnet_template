@@ -8,21 +8,21 @@ namespace Infrastructure.Repositories;
 
 public class SampleRepository : BaseMongoRepository<Sample>, ISampleRepository
 {
-    private readonly IMongoCollection<Sample> _collection;
+    private readonly IMongoCollection<Sample> collection;
 
     public SampleRepository(IMongoContext context, IHttpContextAccessor accessor) : base(context, accessor)
     {
-        _collection = context.GetCollection<Sample>(nameof(Sample));
+        collection = context.GetCollection<Sample>(nameof(Sample));
 
         var indexOptions = new CreateIndexOptions();
         var indexKeys = Builders<Sample>.IndexKeys.Ascending(i => i.Code);
         var indexModel = new CreateIndexModel<Sample>(indexKeys, indexOptions);
-        _collection.Indexes.CreateOneAsync(indexModel);
+        collection.Indexes.CreateOneAsync(indexModel);
     }
 
     public async Task<Sample> GetByCodeAsync(string code)
     {
-        return await _collection
+        return await collection
             .Find(x => x.Code == code)
             .FirstOrDefaultAsync();
     }

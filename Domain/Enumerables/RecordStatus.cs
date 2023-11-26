@@ -6,7 +6,7 @@ namespace Domain.Enumerables;
 public enum RecordStatus
 {
     Active,
-    Inactive,
+    Disabled,
     Deleted
 }
 
@@ -23,7 +23,7 @@ public static class RecordStatusName
         var dict = new Dictionary<string, Locale>
             {
                 { RecordStatus.Active.Code(), Locale.Create("ใช้งาน", "Active", "") },
-                { RecordStatus.Inactive.Code(), Locale.Create("ไม่ใช้งาน", "Inactive", "") },
+                { RecordStatus.Disabled.Code(), Locale.Create("ไม่ใช้งาน", "Disabled", "") },
                 { RecordStatus.Deleted.Code(), Locale.Create("ลบ", "Deleted", "") }
             };
         return dict;

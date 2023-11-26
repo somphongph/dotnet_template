@@ -2,7 +2,6 @@ using System.Text.Json.Serialization;
 
 namespace Domain.Models;
 
-
 public abstract class BaseResponse
 {
     [JsonPropertyOrder(1)]
