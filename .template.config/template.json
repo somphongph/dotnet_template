@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Ktech Innovation",
+  "classifications": ["Ktechinno", "webapi"],
+  "identity": "dotnet-template",
+  "name": "Ktechinno",
+  "shortName": "ktech",
+  "sourceName": "dotnet-template",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "preferNameDirectory": true
+}
