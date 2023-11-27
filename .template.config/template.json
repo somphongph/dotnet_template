@@ -1,9 +1,9 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "Ktech Innovation",
-  "classifications": ["Ktechinno", "webapi"],
+  "classifications": ["ktechinno", "webapi"],
   "identity": "dotnet-template",
-  "name": "Ktechinno",
+  "name": "ktechinno",
   "shortName": "ktech",
   "sourceName": "dotnet-template",
   "tags": {
