@@ -17,7 +17,7 @@ public class Locale
     {
         return Thread.CurrentThread.CurrentUICulture.Name.ToLower() switch
         {
-            "en" or "en-us" => Th,
+            "en" or "en-us" => En,
             "th" or "th-th" => Th,
             "cn" or "zh-cn" => Cn,
             _ => En,
