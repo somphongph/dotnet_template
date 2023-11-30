@@ -6,6 +6,7 @@
 2. CD to root directory
 
 ```sh
+cd content
 dotnet new install ./
 ```
 
