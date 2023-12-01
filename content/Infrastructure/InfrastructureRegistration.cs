@@ -1,11 +1,13 @@
+using Domain.Interfaces.Repositories;
 using Infrastructure.Persistence;
+using Infrastructure.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
 namespace Infrastructure;
 
-public static class InfrastructureServiceRegistration
+public static class InfrastructureRegistration
 {
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
     {
@@ -19,6 +21,7 @@ public static class InfrastructureServiceRegistration
 
         #region Repositories
         services.AddSingleton<IMongoContext, MongoContext>();
+        services.AddSingleton<ISampleRepository, SampleRepository>();
         #endregion
 
         return services;
