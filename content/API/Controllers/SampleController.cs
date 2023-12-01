@@ -1,5 +1,5 @@
 using System.Net;
-using Domain.Handlers.Sample.GetSample;
+using Domain.Modules.Samples.GetSample;
 using Domain.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

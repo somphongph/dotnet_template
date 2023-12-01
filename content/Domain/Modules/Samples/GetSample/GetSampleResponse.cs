@@ -1,4 +1,4 @@
-namespace Domain.Handlers.Sample.GetSample;
+namespace Domain.Modules.Samples.GetSample;
 
 public class GetSampleResponse
 {
