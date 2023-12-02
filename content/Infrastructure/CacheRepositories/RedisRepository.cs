@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure.CacheRepositories;
 
-public class RedisRepository : ICacheRepository
+public class RedisRepository : IRedisRepository
 {
     private readonly IDistributedCache distributedCache;
 

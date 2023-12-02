@@ -1,3 +1,4 @@
+using System.Text.Json;
 using API.Middleware;
 using Domain;
 using Infrastructure;
@@ -11,7 +12,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddControllers()
     .AddJsonOptions(
-        options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
+        options => options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase);
 
 builder.Services.AddHttpContextAccessor();
 
