@@ -17,13 +17,13 @@ public class ResponsePaging<T> : BaseResponse
     public bool IsCached { get; set; }
 
     [JsonPropertyOrder(5)]
-    public long Total { get; set; }
-
-    [JsonPropertyOrder(6)]
     public int Page { get; set; }
 
-    [JsonPropertyOrder(7)]
+    [JsonPropertyOrder(6)]
     public int Limit { get; set; }
+
+    [JsonPropertyOrder(7)]
+    public long Total { get; set; }
 
     [JsonPropertyOrder(8)]
     public IEnumerable<T>? Data { get; set; }

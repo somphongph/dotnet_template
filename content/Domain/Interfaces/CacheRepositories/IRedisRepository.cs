@@ -1,6 +1,6 @@
 namespace Domain.Interfaces.CacheRepositories;
 
-public interface ICacheRepository
+public interface IRedisRepository
 {
     Task<T?> GetCacheAsync<T>(string key);
     Task<T?> AddCacheShortAsync<T>(string key, T data);

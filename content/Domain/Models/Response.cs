@@ -4,10 +4,10 @@ using Domain.Extensions;
 
 namespace Domain.Models;
 
-public class ResponseCommand<T> : BaseResponse
+public class Response<T> : BaseResponse
 {
-    public ResponseCommand() { }
-    public ResponseCommand(ResponseStatus status)
+    public Response() { }
+    public Response(ResponseStatus status)
     {
         Code = status.Code();
         Message = status.NameString();
