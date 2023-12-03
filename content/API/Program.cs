@@ -34,7 +34,8 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers();
+app.MapGroup("/dotnet-template")
+    .MapControllers();
 
 app.UseRequestCulture();
 

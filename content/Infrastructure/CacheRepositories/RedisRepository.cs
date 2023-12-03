@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure.CacheRepositories;
 
-public class RedisRepository : IRedisRepository
+public class RedisRepository : ICacheRepository
 {
     private readonly IDistributedCache distributedCache;
 
@@ -33,6 +33,13 @@ public class RedisRepository : IRedisRepository
         var expireShort = Convert.ToInt32(configuration.GetValue<string>("RedisSettings:ExpireShort"));
 
         return await AddCacheAsync(key, data, expireShort);
+    }
+
+    public async Task<T?> AddCacheMiddleAsync<T>(string key, T data)
+    {
+        var expireMiddle = Convert.ToInt32(configuration.GetValue<string>("RedisSettings:ExpireMiddle"));
+
+        return await AddCacheAsync(key, data, expireMiddle);
     }
 
     public async Task<T?> AddCacheLongAsync<T>(string key, T data)
