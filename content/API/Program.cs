@@ -14,6 +14,8 @@ builder.Services.AddControllers()
     .AddJsonOptions(
         options => options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase);
 
+builder.Configuration.AddEnvironmentVariables("ASPNETCORE_");
+
 builder.Services.AddHttpContextAccessor();
 
 #region Service Register & Dependency Injection
