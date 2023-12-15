@@ -15,8 +15,9 @@ builder.Services.AddControllers()
         options => options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase);
 
 builder.Configuration.AddEnvironmentVariables("ASPNETCORE_");
-
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddHealthChecks();
+
 
 #region Service Register & Dependency Injection
 builder.Services.AddDomainServices();
@@ -36,9 +37,10 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapGroup("/dotnet-template")
-    .MapControllers();
+app.MapControllers();
 
 app.UseRequestCulture();
+
+app.MapHealthChecks("/healthz");
 
 app.Run();
